@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 - JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-home">← Terug naar overzicht</a>
+            <div class="nav-links">
+                <a href="week2.html">Volgende week →</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+            <h1 class="page-title">Week 1 - Eerste stappen</h1>
+            <p class="page-subtitle">Variabelen, datatypes en output</p>
+            
+            <div class="section">
+                <h2>📦 Variabelen (opslag voor gegevens)</h2>
+                
+                <div class="code-block">
+<span class="keyword">let</span> naam = <span class="string">"Jamal"</span>;        <span class="comment">// kan je later veranderen</span><br>
+<span class="keyword">const</span> leeftijd = <span class="number">17</span>;       <span class="comment">// kan NIET meer veranderen</span>
+                </div>
+                
+                <div class="tip">
+                    <strong>Wanneer gebruik je wat?</strong>
+                    <ul>
+                        <li><code>let</code> → waarde kan veranderen (bijv. score in game)</li>
+                        <li><code>const</code> → waarde blijft hetzelfde (bijv. je naam)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔢 Datatypes (soorten gegevens)</h2>
+                
+                <div class="code-block">
+<span class="keyword">let</span> getal = <span class="number">10</span>;           <span class="comment">// number (getallen)</span><br>
+<span class="keyword">let</span> tekst = <span class="string">"Hallo"</span>;      <span class="comment">// string (tekst, altijd tussen "")</span><br>
+<span class="keyword">let</span> klopt = <span class="keyword">true</span>;         <span class="comment">// boolean (true of false)</span>
+                </div>
+                
+                <div class="highlight">
+                    <strong>⚠️ LET OP het verschil:</strong>
+                    <div class="code-block" style="margin-top: 10px;">
+<span class="number">10</span> + <span class="number">10</span>        <span class="comment">// = 20 (rekenen met getallen)</span><br>
+<span class="string">"10"</span> + <span class="string">"10"</span>    <span class="comment">// = "1010" (plakken van tekst)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>💬 Output (laten zien aan gebruiker)</h2>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>In de console:</h3>
+                        <div class="code-block">
+console.<span class="function">log</span>(<span class="string">"Test"</span>);
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Pop-up melding:</h3>
+                        <div class="code-block">
+<span class="function">alert</span>(<span class="string">"Welkom!"</span>);
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>In HTML schrijven:</h3>
+                <div class="code-block">
+document.<span class="function">write</span>(<span class="string">"Hallo wereld"</span>);
+                </div>
+                
+                <h3>HTML element veranderen:</h3>
+                <div class="code-block">
+document.<span class="function">getElementById</span>(<span class="string">"titel"</span>).<span class="property">innerHTML</span> = <span class="string">"Nieuwe tekst"</span>;
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>❓ Input (vragen aan gebruiker)</h2>
+                
+                <div class="code-block">
+<span class="comment">// Vraag stellen (pop-up)</span><br>
+<span class="function">prompt</span>(<span class="string">"Wat is je naam?"</span>);<br><br>
+<span class="comment">// Antwoord opslaan in variabele</span><br>
+<span class="keyword">let</span> naam = <span class="function">prompt</span>(<span class="string">"Wat is je naam?"</span>);<br><br>
+<span class="comment">// Antwoord tonen op pagina</span><br>
+document.<span class="function">write</span>(<span class="string">"Hallo "</span> + naam);
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 DOM selecteren (HTML aanpassen)</h2>
+                
+                <div class="explanation">
+                    <strong>Wat betekent het?</strong>
+                    <ul>
+                        <li><code>document</code> = je <strong>index.html</strong> bestand</li>
+                        <li><code>getElementById("titel")</code> = zoek een element met <strong>id="titel"</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <strong>HTML:</strong>
+                        <div class="code-block">
+&lt;<span class="keyword">p</span> <span class="property">id</span>=<span class="string">"begroeting"</span>&gt;Hallo&lt;/<span class="keyword">p</span>&gt;
+                        </div>
+                    </div>
+                    <div>
+                        <strong>JavaScript:</strong>
+                        <div class="code-block">
+document.<span class="function">getElementById</span>(<span class="string">"begroeting"</span>).<span class="property">innerHTML</span> = <span class="string">"Hoi!"</span>;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    💡 <strong>Onthoud:</strong> <code>getElementById</code> zoekt het element met die id op
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>✏️ Teksten samenvoegen</h2>
+                
+                <div class="code-block">
+<span class="keyword">let</span> voornaam = <span class="string">"Ali"</span>;<br>
+<span class="keyword">let</span> achternaam = <span class="string">"Bakker"</span>;<br><br>
+<span class="comment">// Met + plak je teksten aan elkaar</span><br>
+<span class="keyword">let</span> volledigeNaam = voornaam + <span class="string">" "</span> + achternaam;<br>
+<span class="comment">// Resultaat: "Ali Bakker"</span><br><br>
+document.<span class="function">write</span>(<span class="string">"Mijn naam is "</span> + volledigeNaam + <span class="string">"!"</span>);<br>
+<span class="comment">// Resultaat: "Mijn naam is Ali Bakker!"</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔥 Meest gemaakte fouten</h2>
+                
+                <div class="error">
+                    ❌ <code>Console.log</code> → ✅ <code>console.log</code> (kleine letter!)<br>
+                    ❌ <code>"tekst'</code> → ✅ <code>"tekst"</code> (zelfde soort aanhalingstekens)<br>
+                    ❌ <code>let naam = Jamal</code> → ✅ <code>let naam = "Jamal"</code> (tekst tussen "")<br>
+                    ❌ Geen id in HTML → JavaScript vindt element niet!
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🎮 Test jezelf</h2>
+                
+                <div class="highlight">
+                    <strong>Wat is de output?</strong>
+                    <div class="code-block" style="margin-top: 10px;">
+<span class="keyword">let</span> x = <span class="number">5</span>;<br>
+<span class="keyword">let</span> y = <span class="string">"5"</span>;<br>
+console.<span class="function">log</span>(x + x);    <span class="comment">// = ?</span><br>
+console.<span class="function">log</span>(y + y);    <span class="comment">// = ?</span>
+                    </div>
+                    
+                    <strong>Antwoord:</strong>
+                    <ul>
+                        <li><code>10</code> (number + number = rekenen)</li>
+                        <li><code>"55"</code> (string + string = plakken)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
