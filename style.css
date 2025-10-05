@@ -53,80 +53,194 @@ ol {
 
 /* Hero Section (for index page) */
 .hero {
-  background: #0a0a0a;
-  color: white;
-  padding: 40px 20px 40px;
-  text-align: center;
-  border-bottom: 1px solid #1a1a1a;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+ background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+ color: white;
+ padding: 40px 20px 40px;
+ text-align: center;
+ border-bottom: 1px solid #222;
+ position: relative;
+ overflow: hidden;
+ transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+ animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+ 0%, 100% { transform: scale(1); opacity: 0.5; }
+ 50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 body.light-mode .hero {
-  background: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(217 119 6) 100%);
-  border-bottom: none;
+ background: linear-gradient(135deg, rgb(245 158 11) 0%, rgb(217 119 6) 100%);
+ border-bottom: none;
+}
+
+body.light-mode .hero::before {
+ display: none;
+}
+
+.hero-content {
+ position: relative;
+ z-index: 1;
 }
 
 .hero h1 {
-  font-size: 3.5em;
-  margin-bottom: 15px;
-  font-weight: 700;
-  background: linear-gradient(135deg, rgb(245 158 11), rgb(251 191 36));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+ font-size: 4em;
+ margin-bottom: 20px;
+ font-weight: 800;
+ background: linear-gradient(135deg, rgb(245 158 11), rgb(251 191 36), rgb(245 158 11));
+ background-size: 200% auto;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ animation: gradient-shift 3s ease infinite;
+ letter-spacing: -1px;
+}
+
+@keyframes gradient-shift {
+ 0%, 100% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
 }
 
 body.light-mode .hero h1 {
-  background: white;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ background: white;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: none;
 }
 
-.hero p {
-  font-size: 1.2em;
-  color: #999;
-  font-weight: 300;
+.hero-subtitle {
+ font-size: 1.4em;
+ color: #aaa;
+ font-weight: 400;
+ margin-bottom: 30px;
 }
 
-body.light-mode .hero p {
-  color: rgba(255, 255, 255, 0.9);
+body.light-mode .hero-subtitle {
+ color: rgba(255, 255, 255, 0.95);
 }
+
+.hero-tagline {
+ font-size: 1.1em;
+ color: #666;
+ font-weight: 300;
+ max-width: 600px;
+ margin: 0 auto;
+ line-height: 1.6;
+}
+
+body.light-mode .hero-tagline {
+ color: rgba(255, 255, 255, 0.85);
+}
+
+
 
 /* Intro Section (for index page) */
 .intro {
-  background: #111;
-  padding: 40px;
-  border-radius: 16px;
-  margin-bottom: 60px;
-  border: 1px solid #222;
-  text-align: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+ background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+ padding: 50px;
+ border-radius: 20px;
+ margin-bottom: 60px;
+ border: 1px solid #222;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s ease;
+}
+
+.intro::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -100%;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+ animation: slide 3s infinite;
+}
+
+@keyframes slide {
+ 0% { left: -100%; }
+ 100% { left: 100%; }
 }
 
 body.light-mode .intro {
-  background: white;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ background: white;
+ border: 1px solid #e0e0e0;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .intro::before {
+ background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.05), transparent);
 }
 
 .intro h2 {
-  color: rgb(245 158 11);
-  margin-bottom: 15px;
-  font-size: 1.8em;
-  font-weight: 600;
+ color: rgb(245 158 11);
+ margin-bottom: 20px;
+ font-size: 2.2em;
+ font-weight: 700;
+ position: relative;
+ z-index: 1;
 }
 
 .intro p {
-  color: #aaa;
-  font-size: 1.05em;
-  line-height: 1.7;
-  transition: color 0.3s ease;
+ color: #bbb;
+ font-size: 1.15em;
+ line-height: 1.8;
+ transition: color 0.3s ease;
+ position: relative;
+ z-index: 1;
 }
 
 body.light-mode .intro p {
-  color: #666;
+ color: #555;
 }
 
+.intro-highlight {
+ color: var(--primary-color);
+ font-weight: 600;
+}
+
+.stats-container {
+ display: flex;
+ justify-content: center;
+ gap: 40px;
+ margin-top: 30px;
+ flex-wrap: wrap;
+}
+
+.stat-item {
+ text-align: center;
+}
+
+.stat-number {
+ font-size: 2.5em;
+ font-weight: 700;
+ color: var(--primary-color);
+ display: block;
+ line-height: 1;
+}
+
+.stat-label {
+ font-size: 0.9em;
+ color: #888;
+ margin-top: 5px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+}
+
+body.light-mode .stat-label {
+ color: #666;
+}
 /* Weeks Grid (for index page) */
 .weeks-grid {
   display: grid;
