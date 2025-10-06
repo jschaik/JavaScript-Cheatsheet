@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5 - JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-home">← Terug naar overzicht</a>
+            <div class="nav-links">
+                <a href="week4.html">← Vorige week</a>
+                <a href="week6.html">Volgende week →</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="page-title">Week 5 - Arrays en randomness</h1>
+
+            <section class="section">
+                <h2>Arrays (lijsten)</h2>
+
+                <div class="explanation">
+                    <strong>Wat is een array?</strong><br>
+                    Een array is een lijst met meerdere waardes. In plaats van voor elke waarde een aparte variabele te
+                    maken, kun je alles in één lijst stoppen.
+                </div>
+
+                <h3>Array maken:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> eten = [<span class="string">"pizza"</span>, <span
+                        class="string">"pasta"</span>, <span class="string">"burger"</span>, <span
+                        class="string">"sushi"</span>];
+                </div>
+
+                <div class="explanation">
+                    Een array maak je met vierkante haken <code>[ ]</code> en waardes scheid je met komma's.
+                </div>
+
+                <h3>Array uitlezen:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> eten = [<span class="string">"pizza"</span>, <span
+                        class="string">"pasta"</span>, <span class="string">"burger"</span>, <span
+                        class="string">"sushi"</span>];<br><br>
+                    console.<span class="function">log</span>(eten[<span class="number">0</span>]); <span
+                        class="comment">// "pizza"</span><br>
+                    console.<span class="function">log</span>(eten[<span class="number">1</span>]); <span
+                        class="comment">// "pasta"</span><br>
+                    console.<span class="function">log</span>(eten[<span class="number">2</span>]); <span
+                        class="comment">// "burger"</span><br>
+                    console.<span class="function">log</span>(eten[<span class="number">3</span>]); <span
+                        class="comment">// "sushi"</span>
+                </div>
+
+                <div class="tip">
+                    <strong>Let op:</strong> Arrays beginnen bij 0! Het eerste item is <code>[0]</code>, niet
+                    <code>[1]</code>.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Array lengte</h2>
+
+                <div class="explanation">
+                    Met <code>.length</code> kun je zien hoeveel items er in een array zitten.
+                </div>
+
+                <div class="code-block">
+                    <span class="keyword">let</span> kleuren = [<span class="string">"rood"</span>, <span
+                        class="string">"blauw"</span>, <span class="string">"groen"</span>];<br><br>
+                    console.<span class="function">log</span>(kleuren.<span class="property">length</span>); <span
+                        class="comment">// 3</span>
+                </div>
+
+                <h3>Laatste item pakken:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> kleuren = [<span class="string">"rood"</span>, <span
+                        class="string">"blauw"</span>, <span class="string">"groen"</span>];<br>
+                    <span class="keyword">let</span> laatste = kleuren[kleuren.<span class="property">length</span> -
+                    <span class="number">1</span>];<br>
+                    console.<span class="function">log</span>(laatste); <span class="comment">// "groen"</span>
+                </div>
+
+                <div class="explanation">
+                    We doen <code>-1</code> omdat arrays bij 0 beginnen. Als er 3 items zijn, is het laatste item op
+                    index 2.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Math.random (willekeurig getal)</h2>
+
+                <div class="explanation">
+                    <strong>Wat is Math.random?</strong><br>
+                    <code>Math.random()</code> geeft een willekeurig getal tussen 0 en 1 (bijvoorbeeld 0.7382).
+                </div>
+
+                <div class="code-block">
+                    console.<span class="function">log</span>(Math.<span class="function">random</span>()); <span
+                        class="comment">// bijv. 0.4273819</span>
+                </div>
+
+                <h3>Random getal tussen 0 en 10:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> random = Math.<span class="function">random</span>() * <span
+                        class="number">10</span>;<br>
+                    console.<span class="function">log</span>(random); <span class="comment">// bijv. 7.382910</span>
+                </div>
+
+                <h3>Afgerond naar beneden met Math.floor:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> random = Math.<span class="function">floor</span>(Math.<span
+                        class="function">random</span>() * <span class="number">10</span>);<br>
+                    console.<span class="function">log</span>(random); <span class="comment">// bijv. 7 (heel
+                        getal)</span>
+                </div>
+
+                <div class="tip">
+                    <strong>Math.floor:</strong> rondt af naar beneden. <code>Math.floor(7.9)</code> wordt
+                    <code>7</code>.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Random item uit array</h2>
+
+                <div class="explanation">
+                    Combineer arrays met <code>Math.random()</code> om een willekeurig item te kiezen.
+                </div>
+
+                <h3>Stap voor stap:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> eten = [<span class="string">"pizza"</span>, <span
+                        class="string">"pasta"</span>, <span class="string">"burger"</span>, <span
+                        class="string">"sushi"</span>];<br><br>
+                    <span class="comment">// Stap 1: Random getal tussen 0 en 4</span><br>
+                    <span class="keyword">let</span> randomIndex = Math.<span class="function">floor</span>(Math.<span
+                        class="function">random</span>() * eten.<span class="property">length</span>);<br><br>
+                    <span class="comment">// Stap 2: Pak item op die index</span><br>
+                    <span class="keyword">let</span> randomEten = eten[randomIndex];<br><br>
+                    console.<span class="function">log</span>(randomEten); <span class="comment">// bijv.
+                        "burger"</span>
+                </div>
+
+                <h3>In één regel:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> eten = [<span class="string">"pizza"</span>, <span
+                        class="string">"pasta"</span>, <span class="string">"burger"</span>, <span
+                        class="string">"sushi"</span>];<br>
+                    <span class="keyword">let</span> randomEten = eten[Math.<span
+                        class="function">floor</span>(Math.<span class="function">random</span>() * eten.<span
+                        class="property">length</span>)];<br>
+                    console.<span class="function">log</span>(randomEten);
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Input uitlezen met .value</h2>
+
+                <div class="explanation">
+                    <strong>Wat is .value?</strong><br>
+                    Met <code>.value</code> kun je tekst uit een input veld halen die de gebruiker heeft getypt.
+                </div>
+
+                <h3>Verschil tussen element en waarde:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> input = document.<span class="function">getElementById</span>(<span
+                        class="string">"naamVeld"</span>);<br>
+                    console.<span class="function">log</span>(input); <span class="comment">// Dit is het hele HTML
+                        element</span><br>
+                    console.<span class="function">log</span>(input.<span class="property">value</span>); <span
+                        class="comment">// Dit is alleen de tekst die de gebruiker typte</span>
+                </div>
+
+                <div class="tip">
+                    <strong>Onthoud:</strong>
+                    <ul>
+                        <li><code>getElementById</code> geeft je het hele element</li>
+                        <li><code>.value</code> geeft je alleen de tekst erin</li>
+                    </ul>
+                </div>
+
+                <h3>Stap voor stap voorbeeld:</h3>
+                <div class="two-column">
+                    <div>
+                        <strong>HTML:</strong>
+                        <div class="code-block">
+                            &lt;<span class="keyword">input</span> <span class="property">type</span>=<span
+                                class="string">"text"</span> <span class="property">id</span>=<span
+                                class="string">"naamVeld"</span> <span class="property">placeholder</span>=<span
+                                class="string">"Je naam"</span>&gt;<br>
+                            &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                                class="string">"verzendKnop"</span>&gt;Verzend&lt;/<span
+                                class="keyword">button</span>&gt;<br>
+                            &lt;<span class="keyword">p</span> <span class="property">id</span>=<span
+                                class="string">"resultaat"</span>&gt;&lt;/<span class="keyword">p</span>&gt;
+                        </div>
+                    </div>
+                    <div>
+                        <strong>JavaScript:</strong>
+                        <div class="code-block">
+                            <span class="keyword">let</span> knop = document.<span
+                                class="function">getElementById</span>(<span
+                                class="string">"verzendKnop"</span>);<br><br>
+                            knop.<span class="function">addEventListener</span>(<span class="string">"click"</span>,
+                            begroet);<br><br>
+                            <span class="keyword">function</span> <span class="function">begroet</span>() {<br>
+                            &nbsp;&nbsp;<span class="comment">// Stap 1: Pak het input element</span><br>
+                            &nbsp;&nbsp;<span class="keyword">let</span> inputElement = document.<span
+                                class="function">getElementById</span>(<span class="string">"naamVeld"</span>);<br>
+                            &nbsp;&nbsp;<br>
+                            &nbsp;&nbsp;<span class="comment">// Stap 2: Haal de waarde (tekst) eruit</span><br>
+                            &nbsp;&nbsp;<span class="keyword">let</span> naam = inputElement.<span
+                                class="property">value</span>;<br>
+                            &nbsp;&nbsp;<br>
+                            &nbsp;&nbsp;<span class="comment">// Stap 3: Gebruik de waarde</span><br>
+                            &nbsp;&nbsp;<span class="keyword">let</span> resultaat = document.<span
+                                class="function">getElementById</span>(<span class="string">"resultaat"</span>);<br>
+                            &nbsp;&nbsp;resultaat.<span class="property">innerHTML</span> = <span class="string">"Hallo
+                                "</span> + naam + <span class="string">"!"</span>;<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Korte versie (in één regel):</h3>
+                <div class="code-block">
+                    <span class="keyword">function</span> <span class="function">begroet</span>() {<br>
+                    &nbsp;&nbsp;<span class="comment">// Je kunt het ook in één keer doen:</span><br>
+                    &nbsp;&nbsp;<span class="keyword">let</span> naam = document.<span
+                        class="function">getElementById</span>(<span class="string">"naamVeld"</span>).<span
+                        class="property">value</span>;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="keyword">let</span> resultaat = document.<span
+                        class="function">getElementById</span>(<span class="string">"resultaat"</span>);<br>
+                    &nbsp;&nbsp;resultaat.<span class="property">innerHTML</span> = <span class="string">"Hallo "</span>
+                    + naam + <span class="string">"!"</span>;<br>
+                    }
+                </div>
+
+                <h3>Controleren of input leeg is:</h3>
+                <div class="explanation">
+                    Gebruikers vergeten vaak iets in te vullen. Daarom moet je altijd checken of de input niet leeg is!
+                </div>
+
+                <div class="code-block">
+                    <span class="keyword">function</span> <span class="function">begroet</span>() {<br>
+                    &nbsp;&nbsp;<span class="keyword">let</span> naam = document.<span
+                        class="function">getElementById</span>(<span class="string">"naamVeld"</span>).<span
+                        class="property">value</span>;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="comment">// Check: is de input leeg?</span><br>
+                    &nbsp;&nbsp;<span class="keyword">if</span> (naam === <span class="string">""</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Vul een naam
+                        in!"</span>);<br>
+                    &nbsp;&nbsp;} <span class="keyword">else</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> resultaat = document.<span
+                        class="function">getElementById</span>(<span class="string">"resultaat"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;resultaat.<span class="property">innerHTML</span> = <span
+                        class="string">"Hallo "</span> + naam + <span class="string">"!"</span>;<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="highlight">
+                    <strong>Waarom is dit belangrijk?</strong>
+                    <ul>
+                        <li>Als de input leeg is, krijg je "Hallo !" zonder naam</li>
+                        <li>Door te checken kun je de gebruiker een duidelijke melding geven</li>
+                        <li>Dit noemen we <strong>input validatie</strong></li>
+                    </ul>
+                </div>
+
+                <h3>Veelgemaakte fout:</h3>
+                <div class="error">
+                    <strong>Dit werkt NIET:</strong>
+                    <div class="code-block" style="margin-top: 10px;">
+                        <span class="keyword">let</span> naam = document.<span
+                            class="function">getElementById</span>(<span class="string">"naamVeld"</span>);<br>
+                        resultaat.<span class="property">innerHTML</span> = <span class="string">"Hallo "</span> + naam;
+                        <span class="comment">// ❌ naam is het hele element!</span>
+                    </div>
+                    <strong>Dit werkt WEL:</strong>
+                    <div class="code-block" style="margin-top: 10px;">
+                        <span class="keyword">let</span> naam = document.<span
+                            class="function">getElementById</span>(<span class="string">"naamVeld"</span>).<span
+                            class="property">value</span>;<br>
+                        resultaat.<span class="property">innerHTML</span> = <span class="string">"Hallo "</span> + naam;
+                        <span class="comment">// ✅ naam is de tekst!</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section">
+                <h2>Veelgemaakte fouten</h2>
+
+                <div class="error">
+                    <ul>
+                        <li>Vergeten dat arrays bij 0 beginnen → <code>array[1]</code> is het tweede item</li>
+                        <li><code>Math.random</code> zonder <code>Math.floor</code> → krijg je een kommagetal</li>
+                        <li>Vergeten <code>.value</code> te gebruiken → je krijgt het hele element in plaats van de
+                            tekst</li>
+                        <li>Niet checken of input leeg is → geeft lege resultaten</li>
+                        <li><code>array.lenght</code> → moet <code>array.length</code> zijn (geen h!)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 6 - JavaScript Cheat Sheet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-home">← Terug naar overzicht</a>
+      <div class="nav-links">
+        <a href="week5.html">← Vorige week</a>
+        <a href="week7.html">Volgende week →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <h1 class="page-title">Week 6 - Timers</h1>
+
+      <section class="section">
+        <h2>setInterval (iets herhalen)</h2>
+
+        <div class="explanation">
+          <strong>Wat is setInterval?</strong><br>
+          Met <code>setInterval</code> kun je een functie steeds opnieuw uitvoeren, bijvoorbeeld elke seconde.
+        </div>
+
+        <h3>Basis voorbeeld:</h3>
+        <div class="code-block">
+          <span class="keyword">function</span> <span class="function">zegHallo</span>() {<br>
+          &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Hallo!"</span>);<br>
+          }<br><br>
+          <span class="comment">// Voer zegHallo uit elke 1000 milliseconden (= 1 seconde)</span><br>
+          <span class="function">setInterval</span>(zegHallo, <span class="number">1000</span>);
+        </div>
+
+        <div class="tip">
+          <strong>Tijd in milliseconden:</strong>
+          <ul>
+            <li><code>1000</code> = 1 seconde</li>
+            <li><code>2000</code> = 2 seconden</li>
+            <li><code>500</code> = 0.5 seconde</li>
+          </ul>
+        </div>
+
+        <h3>Opbouw setInterval:</h3>
+        <div class="code-block">
+          <span class="function">setInterval</span>(functieNaam, tijdInMilliseconden);
+        </div>
+
+        <div class="explanation">
+          <ul>
+            <li><code>functieNaam</code> → welke functie moet worden uitgevoerd</li>
+            <li><code>tijdInMilliseconden</code> → hoe lang wachten tussen elke uitvoering</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>clearInterval (stoppen met herhalen)</h2>
+
+        <div class="explanation">
+          <strong>Wat is clearInterval?</strong><br>
+          Met <code>clearInterval</code> kun je een timer stoppen die je met <code>setInterval</code> hebt gestart.
+        </div>
+
+        <h3>Voorbeeld met start en stop:</h3>
+        <div class="two-column">
+          <div>
+            <strong>HTML:</strong>
+            <div class="code-block">
+              &lt;<span class="keyword">p</span> <span class="property">id</span>=<span
+                class="string">"teller"</span>&gt;0&lt;/<span class="keyword">p</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"startKnop"</span>&gt;Start&lt;/<span class="keyword">button</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"stopKnop"</span>&gt;Stop&lt;/<span class="keyword">button</span>&gt;
+            </div>
+          </div>
+          <div>
+            <strong>JavaScript:</strong>
+            <div class="code-block">
+              <span class="keyword">let</span> count = <span class="number">0</span>;<br>
+              <span class="keyword">let</span> timer; <span class="comment">// Hier slaan we de timer op</span><br><br>
+              <span class="keyword">function</span> <span class="function">telOp</span>() {<br>
+              &nbsp;&nbsp;count++;<br>
+              &nbsp;&nbsp;<span class="keyword">let</span> teller = document.<span
+                class="function">getElementById</span>(<span class="string">"teller"</span>);<br>
+              &nbsp;&nbsp;teller.<span class="property">innerHTML</span> = count;<br>
+              }<br><br>
+              <span class="keyword">function</span> <span class="function">start</span>() {<br>
+              &nbsp;&nbsp;timer = <span class="function">setInterval</span>(telOp, <span
+                class="number">1000</span>);<br>
+              }<br><br>
+              <span class="keyword">function</span> <span class="function">stop</span>() {<br>
+              &nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+              }<br><br>
+              document.<span class="function">getElementById</span>(<span class="string">"startKnop"</span>).<span
+                class="function">addEventListener</span>(<span class="string">"click"</span>, start);<br>
+              document.<span class="function">getElementById</span>(<span class="string">"stopKnop"</span>).<span
+                class="function">addEventListener</span>(<span class="string">"click"</span>, stop);
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <strong>Belangrijk:</strong>
+          <ul>
+            <li>Sla de timer op in een variabele (bijv. <code>timer</code>)</li>
+            <li>Gebruik die variabele om de timer te stoppen met <code>clearInterval(timer)</code></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Tijd formatteren (mm:ss)</h2>
+
+        <div class="explanation">
+          Voor een timer wil je vaak tijd tonen als minuten:seconden, bijvoorbeeld "05:30".
+        </div>
+
+        <h3>Seconden omzetten naar minuten en seconden:</h3>
+        <div class="code-block">
+          <span class="keyword">let</span> totaalSeconden = <span class="number">125</span>;<br><br>
+          <span class="comment">// Bereken minuten (afgerond naar beneden)</span><br>
+          <span class="keyword">let</span> minuten = Math.<span class="function">floor</span>(totaalSeconden / <span
+            class="number">60</span>);<br><br>
+          <span class="comment">// Bereken resterende seconden</span><br>
+          <span class="keyword">let</span> seconden = totaalSeconden % <span class="number">60</span>;<br><br>
+          console.<span class="function">log</span>(minuten); <span class="comment">// 2</span><br>
+          console.<span class="function">log</span>(seconden); <span class="comment">// 5</span>
+        </div>
+
+        <div class="tip">
+          <strong>% operator (modulo):</strong> geeft de rest na deling.<br>
+          <code>125 % 60 = 5</code> (want 125 / 60 = 2 met rest 5)
+        </div>
+
+        <h3>Nul toevoegen voor mooie weergave:</h3>
+        <div class="code-block">
+          <span class="keyword">function</span> <span class="function">formatTijd</span>(totaalSeconden) {<br>
+          &nbsp;&nbsp;<span class="keyword">let</span> minuten = Math.<span class="function">floor</span>(totaalSeconden
+          / <span class="number">60</span>);<br>
+          &nbsp;&nbsp;<span class="keyword">let</span> seconden = totaalSeconden % <span class="number">60</span>;<br>
+          &nbsp;&nbsp;<br>
+          &nbsp;&nbsp;<span class="comment">// Voeg een 0 toe als het getal kleiner is dan 10</span><br>
+          &nbsp;&nbsp;<span class="keyword">if</span> (minuten < <span class="number">10</span>) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;minuten = <span class="string">"0"</span> + minuten;<br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;<span class="keyword">if</span> (seconden < <span class="number">10</span>) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;seconden = <span class="string">"0"</span> + seconden;<br>
+              &nbsp;&nbsp;}<br>
+              &nbsp;&nbsp;<br>
+              &nbsp;&nbsp;<span class="keyword">return</span> minuten + <span class="string">":"</span> + seconden;<br>
+              }<br><br>
+              console.<span class="function">log</span>(<span class="function">formatTijd</span>(<span
+                class="number">125</span>)); <span class="comment">// "02:05"</span><br>
+              console.<span class="function">log</span>(<span class="function">formatTijd</span>(<span
+                class="number">65</span>)); <span class="comment">// "01:05"</span><br>
+              console.<span class="function">log</span>(<span class="function">formatTijd</span>(<span
+                class="number">5</span>)); <span class="comment">// "00:05"</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Countdown timer</h2>
+
+        <div class="explanation">
+          Een countdown telt af van een bepaalde tijd naar 0.
+        </div>
+
+        <h3>Simpele countdown van 10 naar 0:</h3>
+        <div class="two-column">
+          <div>
+            <strong>HTML:</strong>
+            <div class="code-block">
+              &lt;<span class="keyword">p</span> <span class="property">id</span>=<span
+                class="string">"countdown"</span>&gt;10&lt;/<span class="keyword">p</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"startKnop"</span>&gt;Start&lt;/<span class="keyword">button</span>&gt;
+            </div>
+          </div>
+          <div>
+            <strong>JavaScript:</strong>
+            <div class="code-block">
+              <span class="keyword">let</span> tijd = <span class="number">10</span>;<br>
+              <span class="keyword">let</span> timer;<br><br>
+              <span class="keyword">function</span> <span class="function">telAf</span>() {<br>
+              &nbsp;&nbsp;tijd--;<br>
+              &nbsp;&nbsp;<span class="keyword">let</span> countdown = document.<span
+                class="function">getElementById</span>(<span class="string">"countdown"</span>);<br>
+              &nbsp;&nbsp;countdown.<span class="property">innerHTML</span> = tijd;<br>
+              &nbsp;&nbsp;<br>
+              &nbsp;&nbsp;<span class="keyword">if</span> (tijd === <span class="number">0</span>) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Tijd is
+                om!"</span>);<br>
+              &nbsp;&nbsp;}<br>
+              }<br><br>
+              <span class="keyword">function</span> <span class="function">start</span>() {<br>
+              &nbsp;&nbsp;timer = <span class="function">setInterval</span>(telAf, <span
+                class="number">1000</span>);<br>
+              }<br><br>
+              document.<span class="function">getElementById</span>(<span class="string">"startKnop"</span>).<span
+                class="function">addEventListener</span>(<span class="string">"click"</span>, start);
+            </div>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <strong>Wat gebeurt er?</strong>
+          <ol>
+            <li>Elke seconde wordt <code>tijd--</code> uitgevoerd (aftellen)</li>
+            <li>De nieuwe tijd wordt getoond</li>
+            <li>Als tijd 0 is, stop de timer en toon een melding</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Pomodoro timer basis</h2>
+
+        <div class="explanation">
+          Een Pomodoro timer is een werktimer die aftelt. Meestal 25 minuten, maar voor deze opdracht beginnen we met 10
+          seconden om te testen.
+        </div>
+
+        <h3>Basis Pomodoro (10 seconden):</h3>
+        <div class="two-column">
+          <div>
+            <strong>HTML:</strong>
+            <div class="code-block">
+              &lt;<span class="keyword">h1</span>&gt;Pomodoro Timer&lt;/<span class="keyword">h1</span>&gt;<br>
+              &lt;<span class="keyword">p</span> <span class="property">id</span>=<span
+                class="string">"timer"</span>&gt;00:10&lt;/<span class="keyword">p</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"startKnop"</span>&gt;Start&lt;/<span class="keyword">button</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"pauseKnop"</span>&gt;Pause&lt;/<span class="keyword">button</span>&gt;<br>
+              &lt;<span class="keyword">button</span> <span class="property">id</span>=<span
+                class="string">"resetKnop"</span>&gt;Reset&lt;/<span class="keyword">button</span>&gt;
+            </div>
+          </div>
+          <div>
+            <strong>JavaScript:</strong>
+            <div class="code-block">
+              <span class="keyword">let</span> tijd = <span class="number">10</span>; <span class="comment">// 10
+                seconden</span><br>
+              <span class="keyword">let</span> timer;<br><br>
+              <span class="keyword">function</span> <span class="function">formatTijd</span>(seconden) {<br>
+              &nbsp;&nbsp;<span class="keyword">let</span> min = Math.<span class="function">floor</span>(seconden /
+              <span class="number">60</span>);<br>
+              &nbsp;&nbsp;<span class="keyword">let</span> sec = seconden % <span class="number">60</span>;<br>
+              &nbsp;&nbsp;<span class="keyword">if</span> (min < <span class="number">10</span>) min = <span
+                  class="string">"0"</span> + min;<br>
+                &nbsp;&nbsp;<span class="keyword">if</span> (sec < <span class="number">10</span>) sec = <span
+                    class="string">"0"</span> + sec;<br>
+                  &nbsp;&nbsp;<span class="keyword">return</span> min + <span class="string">":"</span> + sec;<br>
+                  }<br><br>
+                  <span class="keyword">function</span> <span class="function">update</span>() {<br>
+                  &nbsp;&nbsp;<span class="keyword">let</span> display = document.<span
+                    class="function">getElementById</span>(<span class="string">"timer"</span>);<br>
+                  &nbsp;&nbsp;display.<span class="property">innerHTML</span> = <span
+                    class="function">formatTijd</span>(tijd);<br>
+                  }<br><br>
+                  <span class="keyword">function</span> <span class="function">telAf</span>() {<br>
+                  &nbsp;&nbsp;tijd--;<br>
+                  &nbsp;&nbsp;<span class="function">update</span>();<br>
+                  &nbsp;&nbsp;<br>
+                  &nbsp;&nbsp;<span class="keyword">if</span> (tijd === <span class="number">0</span>) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Klaar!"</span>);<br>
+                  &nbsp;&nbsp;}<br>
+                  }<br><br>
+                  <span class="keyword">function</span> <span class="function">start</span>() {<br>
+                  &nbsp;&nbsp;timer = <span class="function">setInterval</span>(telAf, <span
+                    class="number">1000</span>);<br>
+                  }<br><br>
+                  <span class="keyword">function</span> <span class="function">pause</span>() {<br>
+                  &nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+                  }<br><br>
+                  <span class="keyword">function</span> <span class="function">reset</span>() {<br>
+                  &nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+                  &nbsp;&nbsp;tijd = <span class="number">10</span>;<br>
+                  &nbsp;&nbsp;<span class="function">update</span>();<br>
+                  }<br><br>
+                  <span class="comment">// Event listeners</span><br>
+                  document.<span class="function">getElementById</span>(<span class="string">"startKnop"</span>).<span
+                    class="function">addEventListener</span>(<span class="string">"click"</span>, start);<br>
+                  document.<span class="function">getElementById</span>(<span class="string">"pauseKnop"</span>).<span
+                    class="function">addEventListener</span>(<span class="string">"click"</span>, pause);<br>
+                  document.<span class="function">getElementById</span>(<span class="string">"resetKnop"</span>).<span
+                    class="function">addEventListener</span>(<span class="string">"click"</span>, reset);
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Uitbreiden naar 25:00 timer</h2>
+
+        <div class="explanation">
+          Als je timer werkt met 10 seconden, kun je hem makkelijk uitbreiden naar 25 minuten.
+        </div>
+
+        <div class="code-block">
+          <span class="comment">// Verander alleen deze regel:</span><br>
+          <span class="keyword">let</span> tijd = <span class="number">1500</span>; <span class="comment">// 25 minuten
+            = 25 * 60 = 1500 seconden</span><br><br>
+          <span class="comment">// En in de reset functie:</span><br>
+          <span class="keyword">function</span> <span class="function">reset</span>() {<br>
+          &nbsp;&nbsp;<span class="function">clearInterval</span>(timer);<br>
+          &nbsp;&nbsp;tijd = <span class="number">1500</span>; <span class="comment">// 25 minuten</span><br>
+          &nbsp;&nbsp;<span class="function">update</span>();<br>
+          }
+        </div>
+
+        <div class="tip">
+          <strong>Omrekenen van minuten naar seconden:</strong><br>
+          Vermenigvuldig met 60. Bijvoorbeeld: 25 minuten × 60 = 1500 seconden
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Veelgemaakte fouten</h2>
+
+        <div class="error">
+          <ul>
+            <li><code>setInterval(functie(), 1000)</code> → <code>setInterval(functie, 1000)</code> (geen haakjes bij
+              functienaam!)</li>
+            <li>Vergeten de timer op te slaan in een variabele → kun je hem niet stoppen</li>
+            <li>Timer niet stoppen als tijd 0 is → blijft doorlopen naar negatieve getallen</li>
+            <li>Tijd in seconden in plaats van milliseconden → gebruik 1000 voor 1 seconde</li>
+            <li>Vergeten <code>update()</code> aan te roepen bij reset → timer toont oude waarde</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Stappenplan Pomodoro Timer</h2>
+
+        <div class="highlight">
+          <ol>
+            <li>Maak een variabele <code>tijd = 10</code> (voor testen)</li>
+            <li>Maak een <code>formatTijd()</code> functie die seconden omzet naar "mm:ss"</li>
+            <li>Maak een <code>update()</code> functie die de tijd op het scherm zet</li>
+            <li>Maak een <code>telAf()</code> functie die:
+              <ul>
+                <li><code>tijd--</code> doet</li>
+                <li><code>update()</code> aanroept</li>
+                <li>Checkt of <code>tijd === 0</code> en dan de timer stopt</li>
+              </ul>
+            </li>
+            <li>Maak een <code>start()</code> functie met <code>setInterval(telAf, 1000)</code></li>
+            <li>Maak een <code>pause()</code> functie met <code>clearInterval(timer)</code></li>
+            <li>Maak een <code>reset()</code> functie die tijd terugzet naar 10 en <code>update()</code> aanroept</li>
+            <li>Koppel alle knoppen aan de juiste functies met <code>addEventListener</code></li>
+            <li><strong>Extra:</strong> Verander 10 naar 1500 voor een echte 25-minuten timer</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
