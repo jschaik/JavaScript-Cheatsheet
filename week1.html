@@ -20,7 +20,7 @@
 
     <div class="container">
         <div class="content">
-            <h1 class="page-title">Week 1 - Eerste stappen</h1>
+            <h1 class="page-title">Week 1 - Eerste stappen met JavaScript</h1>
 
             <div class="section">
                 <h2>Variabelen (opslag voor gegevens)</h2>
@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <section class="section">
                 <h2>Output (laten zien aan gebruiker)</h2>
 
                 <div class="two-column">
@@ -92,9 +92,9 @@
                     document.<span class="function">getElementById</span>(<span class="string">"titel"</span>).<span
                         class="property">innerHTML</span> = <span class="string">"Nieuwe tekst"</span>;
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Input (vragen aan gebruiker)</h2>
 
                 <div class="code-block">
@@ -106,15 +106,15 @@
                     <span class="comment">// Antwoord tonen op pagina</span><br>
                     document.<span class="function">write</span>(<span class="string">"Hallo "</span> + naam);
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>DOM selecteren (HTML aanpassen)</h2>
 
                 <div class="explanation">
                     <strong>Wat betekent het?</strong>
                     <ul>
-                        <li><code>document</code> = je <strong>index.html</strong> bestand</li>
+                        <li><code>document</code> = je <strong>html</strong> bestand</li>
                         <li><code>getElementById("titel")</code> = zoek een element met <strong>id="titel"</strong></li>
                     </ul>
                 </div>
@@ -140,9 +140,51 @@
                 <div class="tip">
                     <strong>Onthoud:</strong> <code>getElementById</code> zoekt het element met die id op
                 </div>
-            </div>
+            </section>
+            <section class="section">
+                <h2>document.getElementById uitleg</h2>
 
-            <div class="section">
+                <div class="highlight">
+                    <strong>Stapje voor stapje:</strong>
+                    <div class="code-block" style="margin-top: 10px;">
+                        document.<span class="function">getElementById</span>(<span class="string">"titel"</span>)
+                    </div>
+                    <div class="step">1. <code>document</code> → kijk in je HTML</div>
+                    <div class="step">2. <code>get</code> → pak</div>
+                    <div class="step">3. <code>ElementById</code> → een element met een bepaalde id</div>
+                    <div class="step">4. <code>("titel")</code> → namelijk id="titel"</div>
+                </div>
+
+                <h3>Voorbeeld:</h3>
+                <div class="two-column">
+                    <div>
+                        <strong>HTML:</strong>
+                        <div class="code-block">
+                            &lt;<span class="keyword">h1</span> <span class="property">id</span>=<span
+                                class="string">"titel"</span>&gt;Welkom&lt;/<span class="keyword">h1</span>&gt;
+                        </div>
+                    </div>
+                    <div>
+                        <strong>JavaScript:</strong>
+                        <div class="code-block">
+                            <span class="comment">// Pak de titel</span><br>
+                            document.<span class="function">getElementById</span>(<span
+                                class="string">"titel"</span>)<br><br>
+                            <span class="comment">// Maak hem rood</span><br>
+                            document.<span class="function">getElementById</span>(<span
+                                class="string">"titel"</span>).<span class="property">style</span>.<span
+                                class="property">color</span> = <span class="string">"red"</span>;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error">
+                    <strong>Let op:</strong> Je id in HTML moet <strong>exact</strong> hetzelfde zijn als in JavaScript!
+                    (hoofdletters tellen)
+                </div>
+            </section>
+
+            <section class="section">
                 <h2>Teksten samenvoegen</h2>
 
                 <div class="code-block">
@@ -156,9 +198,9 @@
                     volledigeNaam + <span class="string">"!"</span>);<br>
                     <span class="comment">// Resultaat: "Mijn naam is Ali Bakker!"</span>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Meest gemaakte fouten</h2>
 
                 <div class="error">
@@ -167,9 +209,9 @@
                     <code>let naam = Jamal</code> → <code>let naam = "Jamal"</code> (tekst tussen "")<br>
                     Geen id in HTML → JavaScript vindt element niet!
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Test jezelf</h2>
 
                 <div class="highlight">
@@ -187,7 +229,7 @@
                         <li><code>"55"</code> (string + string = plakken)</li>
                     </ul>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 - JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-home">← Terug naar overzicht</a>
+            <div class="nav-links">
+                <a href="week2.html">← Vorige week</a>
+                <a href="week4.html">Volgende week →</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="page-title">Week 3 - If/else en state</h1>
+
+            <section class="section">
+                <h2>If/else (keuzes maken)</h2>
+
+                <div class="explanation">
+                    <strong>Wat is if/else?</strong><br>
+                    Met if/else kan je code laten beslissen wat er moet gebeuren. Als een voorwaarde waar is, doe je het
+                    ene. Anders doe je iets anders.
+                </div>
+
+                <h3>Basis voorbeeld:</h3>
+                <div class="code-block">
+                    <span class="keyword">let</span> leeftijd = <span class="number">17</span>;<br><br>
+                    <span class="keyword">if</span> (leeftijd >= <span class="number">18</span>) {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Je mag
+                        stemmen!"</span>);<br>
+                    } <span class="keyword">else</span> {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Je mag nog niet
+                        stemmen"</span>);<br>
+                    }
+                </div>
+
+                <div class="explanation">
+                    <strong>Wat gebeurt er?</strong>
+                    <ol>
+                        <li>Check: Is leeftijd groter of gelijk aan 18?</li>
+                        <li>Ja? → Voer code tussen eerste { } uit</li>
+                        <li>Nee? → Voer code tussen else { } uit</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Vergelijk operators</h2>
+
+                <div class="highlight">
+                    <strong>Operators die je kunt gebruiken:</strong>
+                    <ul>
+                        <li><code>===</code> → is precies gelijk aan</li>
+                        <li><code>!==</code> → is niet gelijk aan</li>
+                        <li><code>&gt;</code> → groter dan</li>
+                        <li><code>&lt;</code> → kleiner dan</li>
+                        <li><code>&gt;=</code> → groter dan of gelijk aan</li>
+                        <li><code>&lt;=</code> → kleiner dan of gelijk aan</li>
+                    </ul>
+                </div>
+
+                <h3>Voorbeelden:</h3>
+                <div class="code-block">
+                    <span class="comment">// Even of oneven check</span><br>
+                    <span class="keyword">let</span> getal = <span class="number">8</span>;<br><br>
+                    <span class="keyword">if</span> (getal % <span class="number">2</span> === <span
+                        class="number">0</span>) {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Even getal"</span>);<br>
+                    } <span class="keyword">else</span> {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Oneven
+                        getal"</span>);<br>
+                    }<br><br>
+                    <span class="comment">// Stemgerechtigd ja/nee</span><br>
+                    <span class="keyword">let</span> leeftijd = <span class="number">20</span>;<br><br>
+                    <span class="keyword">if</span> (leeftijd >= <span class="number">18</span>) {<br>
+                    &nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Je mag stemmen!"</span>);<br>
+                    } <span class="keyword">else</span> {<br>
+                    &nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Je bent nog te jong om te
+                        stemmen"</span>);<br>
+                    }
+                </div>
+
+                <div class="tip">
+                    💡 <strong>Let op:</strong> Gebruik <code>===</code> (3 is-tekens) in plaats van <code>==</code> (2
+                    is-tekens). Dit is veiliger!
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>State (geheugen in je app)</h2>
+
+                <div class="explanation">
+                    <strong>Wat is state?</strong><br>
+                    State is een variabele die onthoudt wat er gebeurt in je app. Bijvoorbeeld: hoeveel pizza's heb je
+                    al geklikt? Die waarde moet ergens worden opgeslagen.
+                </div>
+
+                <h3>Simpele teller:</h3>
+                <div class="code-block">
+                    <span class="comment">// State: onthoud hoeveel keer er geklikt is</span><br>
+                    <span class="keyword">let</span> teller = <span class="number">0</span>;<br><br>
+                    <span class="keyword">function</span> <span class="function">klik</span>() {<br>
+                    &nbsp;&nbsp;teller = teller + <span class="number">1</span>; <span class="comment">// of:
+                        teller++;</span><br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(teller);<br>
+                    }
+                </div>
+
+                <div class="tip">
+                    💡 <strong>Tip:</strong> <code>teller++</code> is hetzelfde als <code>teller = teller + 1</code>
+                </div>
+            </section>
+
+
+
+            <section class="section">
+                <h2>DOM aanpassen met variabele waarde</h2>
+
+                <div class="explanation">
+                    Je kunt de waarde van een variabele direct in de HTML zetten:
+                </div>
+
+                <div class="code-block">
+                    <span class="keyword">let</span> score = <span class="number">42</span>;<br>
+                    <span class="keyword">let</span> naam = <span class="string">"Lisa"</span>;<br><br>
+                    <span class="comment">// Zet de waarde in HTML</span><br>
+                    document.<span class="function">getElementById</span>(<span class="string">"score"</span>).<span
+                        class="property">innerHTML</span> = score;<br>
+                    document.<span class="function">getElementById</span>(<span class="string">"naam"</span>).<span
+                        class="property">innerHTML</span> = naam;<br><br>
+                    <span class="comment">// Of gecombineerd:</span><br>
+                    document.<span class="function">getElementById</span>(<span class="string">"resultaat"</span>).<span
+                        class="property">innerHTML</span> = naam + <span class="string">" heeft "</span> + score + <span
+                        class="string">" punten!"</span>;
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Veelgemaakte fouten</h2>
+
+                <div class="error">
+                    <code>if (leeftijd = 18)</code> → <code>if (leeftijd === 18)</code> (gebruik === voor
+                    vergelijken!)<br>
+                    Vergeten om state variabele buiten functie te zetten → werkt niet!<br>
+                    <code>if (leeftijd >= 18)</code> zonder { } → gebruik altijd haakjes!<br>
+                    Vergeten om innerHTML bij te werken → gebruiker ziet niks
+                </div>
+            </section>
+        </div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

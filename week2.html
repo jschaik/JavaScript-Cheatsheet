@@ -23,13 +23,13 @@
         <div class="content">
             <h1 class="page-title">Week 2 - Functies en onclick</h1>
 
-            <div class="section">
+            <section class="section">
                 <h2>Functies (herbruikbare code)</h2>
 
                 <div class="explanation">
                     <strong>Wat is een functie?</strong><br>
                     Een functie is een stukje code dat je kunt hergebruiken. Je schrijft het één keer en gebruikt het zo
-                    vaak je wilt.
+                    vaak je wilt of pas wanneer je het nodig hebt.
                 </div>
 
                 <div class="two-column">
@@ -54,60 +54,11 @@
                 <div class="tip">
                     <strong>Onthoud:</strong> Functie maken = recept opschrijven, aanroepen = recept gebruiken
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
-                <h2>document.getElementById uitleg</h2>
 
-                <div class="explanation">
-                    <strong>Wat betekent het?</strong>
-                    <ul>
-                        <li><code>document</code> = je <strong>index.html</strong> bestand</li>
-                        <li><code>getElementById("titel")</code> = zoek een element met <strong>id="titel"</strong></li>
-                    </ul>
-                </div>
 
-                <div class="highlight">
-                    <strong>Stapje voor stapje:</strong>
-                    <div class="code-block" style="margin-top: 10px;">
-                        document.<span class="function">getElementById</span>(<span class="string">"titel"</span>)
-                    </div>
-                    <div class="step">1. <code>document</code> → kijk in je HTML</div>
-                    <div class="step">2. <code>get</code> → pak</div>
-                    <div class="step">3. <code>ElementById</code> → een element met een bepaalde id</div>
-                    <div class="step">4. <code>("titel")</code> → namelijk id="titel"</div>
-                </div>
-
-                <h3>Voorbeeld:</h3>
-                <div class="two-column">
-                    <div>
-                        <strong>HTML:</strong>
-                        <div class="code-block">
-                            &lt;<span class="keyword">h1</span> <span class="property">id</span>=<span
-                                class="string">"titel"</span>&gt;Welkom&lt;/<span class="keyword">h1</span>&gt;
-                        </div>
-                    </div>
-                    <div>
-                        <strong>JavaScript:</strong>
-                        <div class="code-block">
-                            <span class="comment">// Pak de titel</span><br>
-                            document.<span class="function">getElementById</span>(<span
-                                class="string">"titel"</span>)<br><br>
-                            <span class="comment">// Maak hem rood</span><br>
-                            document.<span class="function">getElementById</span>(<span
-                                class="string">"titel"</span>).<span class="property">style</span>.<span
-                                class="property">color</span> = <span class="string">"red"</span>;
-                        </div>
-                    </div>
-                </div>
-
-                <div class="error">
-                    <strong>Let op:</strong> Je id in HTML moet <strong>exact</strong> hetzelfde zijn als in JavaScript!
-                    (hoofdletters tellen)
-                </div>
-            </div>
-
-            <div class="section">
+            <section class="section">
                 <h2>Functies met onclick (knop reageert)</h2>
 
                 <div class="two-column">
@@ -139,9 +90,9 @@
                         <li>Alert verschijnt</li>
                     </ol>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Tekst veranderen met innerHTML</h2>
 
                 <div class="two-column">
@@ -167,9 +118,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Stijl aanpassen met style</h2>
 
                 <h3>Kleur veranderen:</h3>
@@ -204,60 +155,9 @@
                         <li><code>style.fontSize</code> → lettergrootte (bijv. "20px")</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
-                <h2>Dark Mode Toggle (voorbeeld)</h2>
-
-                <div class="two-column">
-                    <div>
-                        <strong>HTML:</strong>
-                        <div class="code-block">
-                            &lt;<span class="keyword">div</span> <span class="property">id</span>=<span
-                                class="string">"pagina"</span>&gt;<br>
-                            &nbsp;&nbsp;&lt;<span class="keyword">h1</span>&gt;Mijn website&lt;/<span
-                                class="keyword">h1</span>&gt;<br>
-                            &nbsp;&nbsp;&lt;<span class="keyword">img</span> <span class="property">id</span>=<span
-                                class="string">"zon"</span> <span class="property">src</span>=<span
-                                class="string">"zon.png"</span>&gt;<br>
-                            &nbsp;&nbsp;&lt;<span class="keyword">img</span> <span class="property">id</span>=<span
-                                class="string">"maan"</span> <span class="property">src</span>=<span
-                                class="string">"maan.png"</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="property">style</span>=<span
-                                class="string">"display: none;"</span>&gt;<br>
-                            &nbsp;&nbsp;&lt;<span class="keyword">button</span> <span
-                                class="property">onclick</span>=<span class="string">"darkMode()"</span>&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;Toggle Dark Mode<br>
-                            &nbsp;&nbsp;&lt;/<span class="keyword">button</span>&gt;<br>
-                            &lt;/<span class="keyword">div</span>&gt;
-                        </div>
-                    </div>
-                    <div>
-                        <strong>JavaScript:</strong>
-                        <div class="code-block">
-                            <span class="keyword">function</span> <span class="function">darkMode</span>() {<br>
-                            &nbsp;&nbsp;<span class="comment">// Pagina donker maken</span><br>
-                            &nbsp;&nbsp;<span class="keyword">let</span> pagina = document.<span
-                                class="function">getElementById</span>(<span class="string">"pagina"</span>);<br>
-                            &nbsp;&nbsp;pagina.<span class="property">style</span>.<span
-                                class="property">backgroundColor</span> = <span class="string">"black"</span>;<br>
-                            &nbsp;&nbsp;pagina.<span class="property">style</span>.<span class="property">color</span> =
-                            <span class="string">"white"</span>;<br>
-                            &nbsp;&nbsp;<br>
-                            &nbsp;&nbsp;<span class="comment">// Zon verbergen, maan tonen</span><br>
-                            &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
-                                class="string">"zon"</span>).<span class="property">style</span>.<span
-                                class="property">display</span> = <span class="string">"none"</span>;<br>
-                            &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
-                                class="string">"maan"</span>).<span class="property">style</span>.<span
-                                class="property">display</span> = <span class="string">"flex"</span>;<br>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
+            <section class="section">
                 <h2>🔥 Veelgemaakte fouten</h2>
 
                 <div class="error">
@@ -266,9 +166,9 @@
                     <code>style.background-color</code> → <code>style.backgroundColor</code> (camelCase)<br>
                     Functienaam in HTML verschilt van JS → werkt niet!
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <h2>Debug tips</h2>
 
                 <div class="tip">
@@ -285,10 +185,10 @@
                         <li>Check of je id's exact hetzelfde zijn!</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
-            <div class="section">
-                <h2>Stappenplan Dark Mode</h2>
+            <section class="section">
+                <h2>Stappenplan Opdracht Dark Mode</h2>
 
                 <div class="highlight">
                     <ol>
@@ -299,7 +199,7 @@
                         <li>Koppel functie aan knop met <code>onclick</code></li>
                     </ol>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
