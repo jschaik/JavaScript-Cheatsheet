@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-home">← Terug naar overzicht</a>
+        <div class="nav-links">
+            <a href="week1.html">← Vorige week</a>
+            <a href="week3.html">Volgende week →</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="content">
+        <h1 class="page-title">Week 2 - Functies en onclick</h1>
+
+        <section class="section">
+            <h2>Functies (herbruikbare code)</h2>
+
+            <div class="explanation">
+                <strong>Wat is een functie?</strong><br>
+                Een functie is een stukje code dat je kunt hergebruiken. Je schrijft het één keer en gebruikt het zo
+                vaak je wilt of pas wanneer je het nodig hebt.
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Functie maken:</h3>
+                    <div class="code-block">
+                        <span class="keyword">function</span> <span class="function">zegHallo</span>() {<br>
+                        &nbsp;&nbsp;console.<span class="function">log</span>(<span
+                            class="string">"Hallo!"</span>);<br>
+                        }
+                    </div>
+                </div>
+                <div>
+                    <h3>Functie aanroepen:</h3>
+                    <div class="code-block">
+                        <span class="function">zegHallo</span>();<br>
+                        <span class="comment">// Nu gebeurt het pas!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Onthoud:</strong> Functie maken = recept opschrijven, aanroepen = recept gebruiken
+            </div>
+        </section>
+
+
+        <section class="section">
+            <h2>Functies met onclick (knop reageert)</h2>
+
+            <div class="two-column">
+                <div>
+                    <strong>HTML:</strong>
+                    <div class="code-block">
+                        &lt;<span class="keyword">button</span> <span class="property">onclick</span>=<span
+                            class="string">"zegHallo()"</span>&gt;<br>
+                        &nbsp;&nbsp;Klik mij<br>
+                        &lt;/<span class="keyword">button</span>&gt;
+                    </div>
+                </div>
+                <div>
+                    <strong>JavaScript:</strong>
+                    <div class="code-block">
+                        <span class="keyword">function</span> <span class="function">zegHallo</span>() {<br>
+                        &nbsp;&nbsp;<span class="function">alert</span>(<span class="string">"Je
+                                klikte!"</span>);<br>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation">
+                <strong>Wat gebeurt er?</strong>
+                <ol>
+                    <li>Gebruiker klikt op knop</li>
+                    <li><code>onclick</code> roept functie <code>zegHallo()</code> aan</li>
+                    <li>Alert verschijnt</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Tekst veranderen met innerHTML</h2>
+
+            <div class="two-column">
+                <div>
+                    <strong>HTML:</strong>
+                    <div class="code-block">
+                        &lt;<span class="keyword">p</span> <span class="property">id</span>=<span
+                            class="string">"tekst"</span>&gt;Oude tekst&lt;/<span class="keyword">p</span>&gt;<br>
+                        &lt;<span class="keyword">button</span> <span class="property">onclick</span>=<span
+                            class="string">"verander()"</span>&gt;<br>
+                        &nbsp;&nbsp;Verander tekst<br>
+                        &lt;/<span class="keyword">button</span>&gt;
+                    </div>
+                </div>
+                <div>
+                    <strong>JavaScript:</strong>
+                    <div class="code-block">
+                        <span class="keyword">function</span> <span class="function">verander</span>() {<br>
+                        &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
+                            class="string">"tekst"</span>).<span class="property">innerHTML</span> = <span
+                            class="string">"Nieuwe tekst!"</span>;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Stijl aanpassen met style</h2>
+
+            <h3>Kleur veranderen:</h3>
+            <div class="code-block">
+                <span class="keyword">function</span> <span class="function">maakRood</span>() {<br>
+                &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
+                    class="string">"tekst"</span>).<span class="property">style</span>.<span
+                    class="property">color</span> = <span class="string">"red"</span>;<br>
+                }
+            </div>
+
+            <h3>Element verbergen/tonen:</h3>
+            <div class="code-block">
+                <span class="keyword">function</span> <span class="function">verberg</span>() {<br>
+                &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
+                    class="string">"foto"</span>).<span class="property">style</span>.<span
+                    class="property">display</span> = <span class="string">"none"</span>;<br>
+                }<br><br>
+                <span class="keyword">function</span> <span class="function">toon</span>() {<br>
+                &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
+                    class="string">"foto"</span>).<span class="property">style</span>.<span
+                    class="property">display</span> = <span class="string">"flex"</span>;<br>
+                }
+            </div>
+
+            <div class="highlight">
+                <strong>Veel gebruikte style properties:</strong>
+                <ul>
+                    <li><code>style.color</code> → tekstkleur</li>
+                    <li><code>style.backgroundColor</code> → achtergrondkleur</li>
+                    <li><code>style.display</code> → verbergen/tonen ("none" of "flex"/"block")</li>
+                    <li><code>style.fontSize</code> → lettergrootte (bijv. "20px")</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🔥 Veelgemaakte fouten</h2>
+
+            <div class="error">
+                <code>function zegHallo</code> → <code>function zegHallo()</code> (haakjes!)<br>
+                <code>onclick="zegHallo"</code> → <code>onclick="zegHallo()"</code> (haakjes!)<br>
+                <code>style.background-color</code> → <code>style.backgroundColor</code> (camelCase)<br>
+                Functienaam in HTML verschilt van JS → werkt niet!
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Debug tips</h2>
+
+            <div class="tip">
+                <strong>Test altijd in de console:</strong>
+                <div class="code-block" style="margin-top: 10px;">
+                    <span class="keyword">function</span> <span class="function">test</span>() {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Functie
+                            werkt!"</span>);<br>
+                    }
+                </div>
+                <ul style="margin-top: 10px;">
+                    <li>Zie je dit in de console? → Functie werkt</li>
+                    <li>Zie je niks? → Check of onclick goed geschreven is</li>
+                    <li>Check of je id's exact hetzelfde zijn!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Stappenplan Opdracht Dark Mode</h2>
+
+            <div class="highlight">
+                <ol>
+                    <li>Maak functie <code>darkMode()</code></li>
+                    <li>Selecteer element met <code>getElementById</code></li>
+                    <li>Verander <code>style.backgroundColor</code> en <code>style.color</code></li>
+                    <li>Verberg/toon iconen met <code>style.display</code></li>
+                    <li>Koppel functie aan knop met <code>onclick</code></li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+
+<script src="../assets/js/app.js"></script>
+</body>
+
+</html>

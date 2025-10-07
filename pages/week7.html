@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 - JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-home">← Terug naar overzicht</a>
+        <div class="nav-links">
+            <a href="week6.html">← Vorige week</a>
+            <a href="week8.html">Volgende week →</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="content">
+        <h1 class="page-title">Week 7 - Arrays combineren met logica</h1>
+
+        <section class="section">
+            <h2>Arrays met objecten</h2>
+
+            <div class="explanation">
+                <strong>Wat zijn objecten in arrays?</strong><br>
+                Tot nu toe hadden we arrays met losse waardes (strings, numbers). Maar je kunt ook complexere data
+                opslaan met
+                objecten.
+            </div>
+
+            <h3>Simpele array (wat we al kennen):</h3>
+            <div class="code-block">
+                <span class="keyword">let</span> kleuren = [<span class="string">"rood"</span>, <span
+                    class="string">"blauw"</span>, <span class="string">"groen"</span>];
+            </div>
+
+            <h3>Array met objecten (nieuwe manier):</h3>
+            <div class="code-block">
+                <span class="keyword">let</span> vragen = [<br>
+                &nbsp;&nbsp;{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;vraag: <span class="string">"Wat is de hoofdstad van Nederland?"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;antwoord: <span class="string">"Amsterdam"</span><br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;vraag: <span class="string">"Hoeveel poten heeft een spin?"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;antwoord: <span class="string">"8"</span><br>
+                &nbsp;&nbsp;}<br>
+                ];
+            </div>
+
+            <div class="tip">
+                <strong>Voordeel:</strong> Je kunt meerdere eigenschappen per item opslaan (vraag + antwoord, naam +
+                leeftijd,
+                etc.)
+            </div>
+
+            <h3>Uitlezen van objecten in array:</h3>
+            <div class="code-block">
+                <span class="comment">// Eerste vraag pakken</span><br>
+                console.<span class="function">log</span>(vragen[<span class="number">0</span>]); <span class="comment">//
+            Hele object</span><br>
+                console.<span class="function">log</span>(vragen[<span class="number">0</span>].<span
+                    class="property">vraag</span>); <span class="comment">// "Wat is de hoofdstad van Nederland?"</span><br>
+                console.<span class="function">log</span>(vragen[<span class="number">0</span>].<span
+                    class="property">antwoord</span>); <span class="comment">// "Amsterdam"</span><br><br>
+                <span class="comment">// Tweede vraag pakken</span><br>
+                console.<span class="function">log</span>(vragen[<span class="number">1</span>].<span
+                    class="property">vraag</span>); <span class="comment">// "Hoeveel poten heeft een spin?"</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>For...of loop (door array heen lopen)</h2>
+
+            <div class="explanation">
+                <strong>Wat is een for...of loop?</strong><br>
+                Met <code>for...of</code> kun je door een array heen lopen, item voor item. Dit is de makkelijkste
+                manier om
+                door een array te gaan.
+            </div>
+
+            <h3>Basis for...of loop:</h3>
+            <div class="code-block">
+                <span class="keyword">let</span> kleuren = [<span class="string">"rood"</span>, <span
+                    class="string">"blauw"</span>, <span class="string">"groen"</span>];<br><br>
+                <span class="keyword">for</span> (<span class="keyword">let</span> kleur <span class="keyword">of</span>
+                kleuren) {<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(kleur);<br>
+                }
+            </div>
+
+            <div class="explanation">
+                <strong>Wat betekent dit?</strong>
+                <ul>
+                    <li><code>for</code> → begin een loop</li>
+                    <li><code>let kleur</code> → maak een variabele voor elk item</li>
+                    <li><code>of kleuren</code> → loop door de array "kleuren"</li>
+                    <li><code>console.log(kleur)</code> → print elk item</li>
+                </ul>
+            </div>
+
+            <h3>Output:</h3>
+            <div class="code-block">
+                <span class="comment">// In de console zie je:</span><br>
+                rood<br>
+                blauw<br>
+                groen
+            </div>
+
+            <div class="tip">
+                <strong>Voordeel for...of:</strong> Super simpel! Je krijgt automatisch elk item zonder dat je met
+                indexen
+                hoeft te werken.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>For...of met objecten</h2>
+
+            <div class="explanation">
+                Je kunt for...of gebruiken om door een array met objecten heen te lopen.
+            </div>
+
+            <h3>Voorbeeld met vragen:</h3>
+            <div class="code-block">
+                <span class="keyword">let</span> vragen = [<br>
+                &nbsp;&nbsp;{ vraag: <span class="string">"2 + 2?"</span>, antwoord: <span class="string">"4"</span>
+                },<br>
+                &nbsp;&nbsp;{ vraag: <span class="string">"5 x 3?"</span>, antwoord: <span class="string">"15"</span> },<br>
+                &nbsp;&nbsp;{ vraag: <span class="string">"10 - 7?"</span>, antwoord: <span class="string">"3"</span>
+                }<br>
+                ];<br><br>
+                <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span>
+                vragen) {<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Vraag: "</span> + item.<span
+                    class="property">vraag</span>);<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Antwoord: "</span> +
+                item.<span
+                    class="property">antwoord</span>);<br>
+                }
+            </div>
+
+            <h3>Output:</h3>
+            <div class="code-block">
+                <span class="comment">// In de console zie je:</span><br>
+                Vraag: 2 + 2?<br>
+                Antwoord: 4<br>
+                Vraag: 5 x 3?<br>
+                Antwoord: 15<br>
+                Vraag: 10 - 7?<br>
+                Antwoord: 3
+            </div>
+
+            <div class="explanation">
+                <strong>Let op:</strong> Bij for...of krijg je niet automatisch een index (vraagteller). Als je die
+                nodig
+                hebt, moet je zelf een variabele maken.
+            </div>
+
+            <h3>Met teller (als je die nodig hebt):</h3>
+            <div class="code-block">
+                <span class="keyword">let</span> teller = <span class="number">1</span>;<br><br>
+                <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span>
+                vragen) {<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Vraag "</span> + teller +
+                <span
+                        class="string">": "</span> + item.<span class="property">vraag</span>);<br>
+                &nbsp;&nbsp;teller++;<br>
+                }
+            </div>
+        </section>
+
+
+        <section class="section">
+            <h2>Samenvatting</h2>
+
+            <div class="highlight">
+                <strong>Belangrijkste concepten deze week:</strong>
+                <ul>
+                    <li>Arrays kunnen objecten bevatten met meerdere eigenschappen</li>
+                    <li>For...of loop gebruiken om door arrays heen te lopen</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Veelgemaakte fouten</h2>
+
+            <div class="error">
+                <ul>
+                    <li><code>for let item in array</code> → moet <code>for let item of array</code> zijn (gebruik
+                        <strong>of</strong>, niet in)
+                    </li>
+                    <li>Object eigenschappen verkeerd schrijven → <code>item.vraag</code> niet <code>item[vraag]</code>
+                    </li>
+                    <li>Proberen om <code>[i]</code> te gebruiken in for...of → gebruik gewoon de variabele naam (bijv.
+                        <code>item</code>)
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Debug tip:</h3>
+            <div class="tip">
+                <strong>Bij problemen met for...of:</strong>
+                <ul>
+                    <li>Zet <code>console.log(item)</code> in de loop om te zien wat je items zijn</li>
+                    <li>Check of je <code>of</code> gebruikt en niet <code>in</code></li>
+                    <li>Check of je objecteigenschappen correct schrijft met een <code>.</code></li>
+                    <li>Test eerst met een kleine array (2-3 items)</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
+
+<script src="../assets/js/app.js"></script>
+</body>
+
+</html>
