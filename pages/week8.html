@@ -9,294 +9,297 @@
 </head>
 
 <body>
-<nav class="nav">
-    <div class="nav-container">
-        <a href="../index.html" class="nav-home">← Terug naar overzicht</a>
-        <div class="nav-links">
-            <a href="week7.html">← Vorige week</a>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-home">← Terug naar overzicht</a>
+            <div class="nav-links">
+                <a href="week7.html">← Vorige week</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="page-title">Week 8 - Alles combineren</h1>
+
+            <section class="section">
+                <h2>Wat heb je geleerd?</h2>
+
+                <div class="highlight">
+                    <strong>In de afgelopen 8 weken heb je geleerd:</strong>
+                    <ul>
+                        <li><strong>Week 1:</strong> Variabelen, datatypes, console.log, prompt, innerHTML</li>
+                        <li><strong>Week 2:</strong> Functies, onclick, getElementById, style aanpassen</li>
+                        <li><strong>Week 3:</strong> If/else, vergelijkingen, state (variabelen onthouden)</li>
+                        <li><strong>Week 4:</strong> addEventListener (modernere events)</li>
+                        <li><strong>Week 5:</strong> Arrays, Math.random, .value (input uitlezen)</li>
+                        <li><strong>Week 6:</strong> setInterval, clearInterval, timers maken</li>
+                        <li><strong>Week 7:</strong> For...of loops, arrays met objecten, meerdere states</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Alles samenvoegen</h2>
+
+                <div class="explanation">
+                    In week 8 combineer je alle concepten in één grote app. Dat betekent:
+                    <ul>
+                        <li>Meerdere variabelen (states) bijhouden tegelijk</li>
+                        <li>Timers gebruiken om automatisch dingen te laten gebeuren</li>
+                        <li>Knoppen koppelen aan functies met addEventListener</li>
+                        <li>If/else gebruiken voor game logic (game over, win conditions)</li>
+                        <li>Display updaten na elke actie</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Debuggen (fouten oplossen)</h2>
+
+                <div class="explanation">
+                    <strong>Wat is debuggen?</strong><br>
+                    Debuggen is het proces van fouten zoeken en oplossen in je code. Dit is een belangrijke skill!
+                </div>
+
+                <h3>console.log() is je beste vriend</h3>
+                <div class="code-block">
+                    <span class="keyword">function</span> <span class="function">feed</span>() {<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"feed functie wordt
+                        aangeroepen"</span>);<br>
+                    &nbsp;&nbsp;hunger = hunger - <span class="number">10</span>;<br>
+                    &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Nieuwe hunger waarde:
+                        "</span> +
+                    hunger);<br>
+                    &nbsp;&nbsp;<span class="function">updateDisplay</span>();<br>
+                    }
+                </div>
+
+                <div class="tip">
+                    <strong>Waarom console.log gebruiken?</strong>
+                    <ul>
+                        <li>Zie je of een functie überhaupt wordt aangeroepen</li>
+                        <li>Zie je wat de waarde is van variabelen</li>
+                        <li>Zie je waar in je code het misgaat</li>
+                    </ul>
+                </div>
+
+                <h3>Console openen in browser:</h3>
+                <div class="explanation">
+                    <ul>
+                        <li><strong>Chrome/Edge:</strong> F12 of Ctrl + Shift + J (Windows) / Cmd + Option + J (Mac)
+                        </li>
+                        <li><strong>Firefox:</strong> F12 of Ctrl + Shift + K (Windows) / Cmd + Option + K (Mac)</li>
+                        <li>Klik op het tabblad "Console"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Veelvoorkomende fouten oplossen</h2>
+
+                <div class="error">
+                    <strong>1. Functie wordt niet aangeroepen</strong>
+                    <ul>
+                        <li>Check: staat er een addEventListener in je code?</li>
+                        <li>Check: is het id in HTML hetzelfde als in JavaScript?</li>
+                        <li>Check: staat je JavaScript onderaan de HTML (of gebruik DOMContentLoaded)?</li>
+                        <li>Zet <code>console.log("test")</code> bovenaan de functie</li>
+                    </ul>
+                </div>
+
+                <div class="error">
+                    <strong>2. Display wordt niet geupdate</strong>
+                    <ul>
+                        <li>Check: roep je <code>updateDisplay()</code> aan na elke actie?</li>
+                        <li>Check: staan de id's correct in <code>getElementById</code>?</li>
+                        <li>Zet <code>console.log()</code> in updateDisplay om te zien of hij wordt aangeroepen</li>
+                    </ul>
+                </div>
+
+                <div class="error">
+                    <strong>3. Timer loopt niet / stopt niet</strong>
+                    <ul>
+                        <li>Check: is de timer opgeslagen in een variabele?</li>
+                        <li>Check: gebruik je <code>clearInterval(timer)</code> om te stoppen?</li>
+                        <li>Check: staat er <code>1000</code> voor milliseconden (niet 1)?</li>
+                        <li>Zet <code>console.log()</code> in de timer functie om te zien of hij loopt</li>
+                    </ul>
+                </div>
+
+                <div class="error">
+                    <strong>4. Variabele heeft verkeerde waarde</strong>
+                    <ul>
+                        <li>Zet <code>console.log(variabeleNaam)</code> om de waarde te zien</li>
+                        <li>Check: vergeet je niet om de variabele te updaten?</li>
+                        <li>Check: gebruik je <code>=</code> (toekennen) of <code>===</code> (vergelijken) correct?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Stappenplan voor grote projecten</h2>
+
+                <div class="highlight">
+                    <strong>Bouw je app in kleine stapjes:</strong>
+                    <ol>
+                        <li><strong>Stap 1: HTML structuur</strong>
+                            <ul>
+                                <li>Maak alle HTML elementen met correcte id's</li>
+                                <li>Test of alles zichtbaar is</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 2: Variabelen (state)</strong>
+                            <ul>
+                                <li>Maak alle variabelen die je nodig hebt</li>
+                                <li>Log ze in de console om te testen</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 3: Display functie</strong>
+                            <ul>
+                                <li>Maak een <code>updateDisplay()</code> functie</li>
+                                <li>Test of hij de juiste waardes toont</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 4: Eerste knop</strong>
+                            <ul>
+                                <li>Maak één functie (bijv. feed)</li>
+                                <li>Koppel hem aan een knop met addEventListener</li>
+                                <li>Test grondig voordat je verdergaat!</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 5: Meer knoppen</strong>
+                            <ul>
+                                <li>Voeg één voor één extra knoppen toe</li>
+                                <li>Test elke knop apart</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 6: Timer (optioneel)</strong>
+                            <ul>
+                                <li>Voeg een timer toe die automatisch waardes verandert</li>
+                                <li>Test of je hem kunt starten en stoppen</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stap 7: Game over logica</strong>
+                            <ul>
+                                <li>Voeg checks toe: is hunger te hoog? Is energy te laag?</li>
+                                <li>Toon game over scherm</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="tip">
+                    <strong>Gouden regel:</strong> Test elke kleine stap voordat je verder gaat. Het is makkelijker om 1
+                    klein
+                    probleem op te lossen dan 10 problemen tegelijk!
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Code organisatie tips</h2>
+
+                <div class="explanation">
+                    <strong>Houd je code overzichtelijk:</strong>
+                </div>
+
+                <h3>1. Gebruik commentaar</h3>
+                <div class="code-block">
+                    <span class="comment">// ===== STATE =====</span><br>
+                    <span class="keyword">let</span> hunger = <span class="number">50</span>;<br>
+                    <span class="keyword">let</span> energy = <span class="number">50</span>;<br>
+                    <span class="keyword">let</span> happiness = <span class="number">50</span>;<br><br>
+                    <span class="comment">// ===== FUNCTIES =====</span><br>
+                    <span class="keyword">function</span> <span class="function">feed</span>() {<br>
+                    &nbsp;&nbsp;<span class="comment">// Code hier</span><br>
+                    }<br><br>
+                    <span class="comment">// ===== EVENT LISTENERS =====</span><br>
+                    document.<span class="function">getElementById</span>(<span class="string">"feedBtn"</span>).<span
+                        class="function">addEventListener</span>(<span class="string">"click"</span>, feed);
+                </div>
+
+                <h3>2. Duidelijke functienamen</h3>
+                <div class="code-block">
+                    <span class="comment">// ✅ Goed - duidelijke namen</span><br>
+                    <span class="keyword">function</span> <span class="function">feed</span>() { }<br>
+                    <span class="keyword">function</span> <span class="function">sleep</span>() { }<br>
+                    <span class="keyword">function</span> <span class="function">play</span>() { }<br><br>
+                    <span class="comment">// ❌ Slecht - onduidelijke namen</span><br>
+                    <span class="keyword">function</span> <span class="function">f</span>() { }<br>
+                    <span class="keyword">function</span> <span class="function">doSomething</span>() { }<br>
+                    <span class="keyword">function</span> <span class="function">func1</span>() { }
+                </div>
+
+                <h3>3. Één functie, één taak</h3>
+                <div class="code-block">
+                    <span class="comment">// ✅ Goed - aparte functies</span><br>
+                    <span class="keyword">function</span> <span class="function">decreaseHunger</span>() {<br>
+                    &nbsp;&nbsp;hunger = hunger - <span class="number">10</span>;<br>
+                    &nbsp;&nbsp;<span class="function">checkBounds</span>();<br>
+                    }<br><br>
+                    <span class="keyword">function</span> <span class="function">checkBounds</span>() {<br>
+                    &nbsp;&nbsp;<span class="keyword">if</span> (hunger < <span class="number">0</span>) hunger = <span
+                            class="number">0</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">if</span> (hunger > <span class="number">100</span>) hunger =
+                        <span class="number">100</span>;<br>
+                        }<br><br>
+                        <span class="keyword">function</span> <span class="function">updateDisplay</span>() {<br>
+                        &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
+                            class="string">"hunger"</span>).<span class="property">innerHTML</span> = hunger;<br>
+                        }
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Veelgemaakte fouten week 8</h2>
+
+                <div class="error">
+                    <ul>
+                        <li>Te veel code in één keer schrijven zonder te testen → werkt niks en je weet niet waar de
+                            fout
+                            zit
+                        </li>
+                        <li>Geen console.log() gebruiken → blind debuggen is onmogelijk</li>
+                        <li>Vergeten updateDisplay() aan te roepen → display blijft hangen op oude waardes</li>
+                        <li>Meerdere timers starten zonder de oude te stoppen → chaos!</li>
+                        <li>id's in HTML en JavaScript komen niet overeen → elementen worden niet gevonden</li>
+                        <li>Geen grenzen checken bij waardes → negatieve getallen of getallen boven 100</li>
+                        <li>JavaScript laden voordat HTML klaar is → gebruik DOMContentLoaded of zet script onderaan
+                        </li>
+                        <li>Onduidelijke variabele namen → na een week weet je zelf niet meer wat <code>x</code> of
+                            <code>temp</code> betekent
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Je bent klaar!</h2>
+
+                <div class="highlight">
+                    <strong>Gefeliciteerd!</strong> Je hebt alle basis JavaScript concepten geleerd. Je kunt nu:
+                    <ul>
+                        <li>Interactieve websites maken</li>
+                        <li>Data opslaan en manipuleren</li>
+                        <li>Gebruikersinput verwerken</li>
+                        <li>Timers en animaties maken</li>
+                        <li>Complexe logica schrijven met loops en if/else</li>
+                        <li>Je eigen code debuggen</li>
+                    </ul>
+
+                    <br><strong>Volgende stappen:</strong>
+                    <ul>
+                        <li>Blijf oefenen met eigen projecten</li>
+                        <li>Leer over APIs om data op te halen van internet</li>
+                        <li>Experimenteer en maak fouten - zo leer je het beste!</li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </div>
-</nav>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
 
-<div class="container">
-    <div class="content">
-        <h1 class="page-title">Week 8 - Alles combineren</h1>
-
-        <section class="section">
-            <h2>Wat heb je geleerd?</h2>
-
-            <div class="highlight">
-                <strong>In de afgelopen 8 weken heb je geleerd:</strong>
-                <ul>
-                    <li><strong>Week 1:</strong> Variabelen, datatypes, console.log, prompt, innerHTML</li>
-                    <li><strong>Week 2:</strong> Functies, onclick, getElementById, style aanpassen</li>
-                    <li><strong>Week 3:</strong> If/else, vergelijkingen, state (variabelen onthouden)</li>
-                    <li><strong>Week 4:</strong> addEventListener (modernere events)</li>
-                    <li><strong>Week 5:</strong> Arrays, Math.random, .value (input uitlezen)</li>
-                    <li><strong>Week 6:</strong> setInterval, clearInterval, timers maken</li>
-                    <li><strong>Week 7:</strong> For...of loops, arrays met objecten, meerdere states</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Alles samenvoegen</h2>
-
-            <div class="explanation">
-                In week 8 combineer je alle concepten in één grote app. Dat betekent:
-                <ul>
-                    <li>Meerdere variabelen (states) bijhouden tegelijk</li>
-                    <li>Timers gebruiken om automatisch dingen te laten gebeuren</li>
-                    <li>Knoppen koppelen aan functies met addEventListener</li>
-                    <li>If/else gebruiken voor game logic (game over, win conditions)</li>
-                    <li>Display updaten na elke actie</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Debuggen (fouten oplossen)</h2>
-
-            <div class="explanation">
-                <strong>Wat is debuggen?</strong><br>
-                Debuggen is het proces van fouten zoeken en oplossen in je code. Dit is een belangrijke skill!
-            </div>
-
-            <h3>console.log() is je beste vriend</h3>
-            <div class="code-block">
-                <span class="keyword">function</span> <span class="function">feed</span>() {<br>
-                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"feed functie wordt
-            aangeroepen"</span>);<br>
-                &nbsp;&nbsp;hunger = hunger - <span class="number">10</span>;<br>
-                &nbsp;&nbsp;console.<span class="function">log</span>(<span
-                    class="string">"Nieuwe hunger waarde: "</span> +
-                hunger);<br>
-                &nbsp;&nbsp;<span class="function">updateDisplay</span>();<br>
-                }
-            </div>
-
-            <div class="tip">
-                <strong>Waarom console.log gebruiken?</strong>
-                <ul>
-                    <li>Zie je of een functie überhaupt wordt aangeroepen</li>
-                    <li>Zie je wat de waarde is van variabelen</li>
-                    <li>Zie je waar in je code het misgaat</li>
-                </ul>
-            </div>
-
-            <h3>Console openen in browser:</h3>
-            <div class="explanation">
-                <ul>
-                    <li><strong>Chrome/Edge:</strong> F12 of Ctrl + Shift + J (Windows) / Cmd + Option + J (Mac)</li>
-                    <li><strong>Firefox:</strong> F12 of Ctrl + Shift + K (Windows) / Cmd + Option + K (Mac)</li>
-                    <li>Klik op het tabblad "Console"</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Veelvoorkomende fouten oplossen</h2>
-
-            <div class="error">
-                <strong>1. Functie wordt niet aangeroepen</strong>
-                <ul>
-                    <li>Check: staat er een addEventListener in je code?</li>
-                    <li>Check: is het id in HTML hetzelfde als in JavaScript?</li>
-                    <li>Check: staat je JavaScript onderaan de HTML (of gebruik DOMContentLoaded)?</li>
-                    <li>Zet <code>console.log("test")</code> bovenaan de functie</li>
-                </ul>
-            </div>
-
-            <div class="error">
-                <strong>2. Display wordt niet geupdate</strong>
-                <ul>
-                    <li>Check: roep je <code>updateDisplay()</code> aan na elke actie?</li>
-                    <li>Check: staan de id's correct in <code>getElementById</code>?</li>
-                    <li>Zet <code>console.log()</code> in updateDisplay om te zien of hij wordt aangeroepen</li>
-                </ul>
-            </div>
-
-            <div class="error">
-                <strong>3. Timer loopt niet / stopt niet</strong>
-                <ul>
-                    <li>Check: is de timer opgeslagen in een variabele?</li>
-                    <li>Check: gebruik je <code>clearInterval(timer)</code> om te stoppen?</li>
-                    <li>Check: staat er <code>1000</code> voor milliseconden (niet 1)?</li>
-                    <li>Zet <code>console.log()</code> in de timer functie om te zien of hij loopt</li>
-                </ul>
-            </div>
-
-            <div class="error">
-                <strong>4. Variabele heeft verkeerde waarde</strong>
-                <ul>
-                    <li>Zet <code>console.log(variabeleNaam)</code> om de waarde te zien</li>
-                    <li>Check: vergeet je niet om de variabele te updaten?</li>
-                    <li>Check: gebruik je <code>=</code> (toekennen) of <code>===</code> (vergelijken) correct?</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Stappenplan voor grote projecten</h2>
-
-            <div class="highlight">
-                <strong>Bouw je app in kleine stapjes:</strong>
-                <ol>
-                    <li><strong>Stap 1: HTML structuur</strong>
-                        <ul>
-                            <li>Maak alle HTML elementen met correcte id's</li>
-                            <li>Test of alles zichtbaar is</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 2: Variabelen (state)</strong>
-                        <ul>
-                            <li>Maak alle variabelen die je nodig hebt</li>
-                            <li>Log ze in de console om te testen</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 3: Display functie</strong>
-                        <ul>
-                            <li>Maak een <code>updateDisplay()</code> functie</li>
-                            <li>Test of hij de juiste waardes toont</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 4: Eerste knop</strong>
-                        <ul>
-                            <li>Maak één functie (bijv. feed)</li>
-                            <li>Koppel hem aan een knop met addEventListener</li>
-                            <li>Test grondig voordat je verdergaat!</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 5: Meer knoppen</strong>
-                        <ul>
-                            <li>Voeg één voor één extra knoppen toe</li>
-                            <li>Test elke knop apart</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 6: Timer (optioneel)</strong>
-                        <ul>
-                            <li>Voeg een timer toe die automatisch waardes verandert</li>
-                            <li>Test of je hem kunt starten en stoppen</li>
-                        </ul>
-                    </li>
-                    <li><strong>Stap 7: Game over logica</strong>
-                        <ul>
-                            <li>Voeg checks toe: is hunger te hoog? Is energy te laag?</li>
-                            <li>Toon game over scherm</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-
-            <div class="tip">
-                <strong>Gouden regel:</strong> Test elke kleine stap voordat je verder gaat. Het is makkelijker om 1
-                klein
-                probleem op te lossen dan 10 problemen tegelijk!
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Code organisatie tips</h2>
-
-            <div class="explanation">
-                <strong>Houd je code overzichtelijk:</strong>
-            </div>
-
-            <h3>1. Gebruik commentaar</h3>
-            <div class="code-block">
-                <span class="comment">// ===== STATE =====</span><br>
-                <span class="keyword">let</span> hunger = <span class="number">50</span>;<br>
-                <span class="keyword">let</span> energy = <span class="number">50</span>;<br>
-                <span class="keyword">let</span> happiness = <span class="number">50</span>;<br><br>
-                <span class="comment">// ===== FUNCTIES =====</span><br>
-                <span class="keyword">function</span> <span class="function">feed</span>() {<br>
-                &nbsp;&nbsp;<span class="comment">// Code hier</span><br>
-                }<br><br>
-                <span class="comment">// ===== EVENT LISTENERS =====</span><br>
-                document.<span class="function">getElementById</span>(<span class="string">"feedBtn"</span>).<span
-                    class="function">addEventListener</span>(<span class="string">"click"</span>, feed);
-            </div>
-
-            <h3>2. Duidelijke functienamen</h3>
-            <div class="code-block">
-                <span class="comment">// ✅ Goed - duidelijke namen</span><br>
-                <span class="keyword">function</span> <span class="function">feed</span>() { }<br>
-                <span class="keyword">function</span> <span class="function">sleep</span>() { }<br>
-                <span class="keyword">function</span> <span class="function">play</span>() { }<br><br>
-                <span class="comment">// ❌ Slecht - onduidelijke namen</span><br>
-                <span class="keyword">function</span> <span class="function">f</span>() { }<br>
-                <span class="keyword">function</span> <span class="function">doSomething</span>() { }<br>
-                <span class="keyword">function</span> <span class="function">func1</span>() { }
-            </div>
-
-            <h3>3. Één functie, één taak</h3>
-            <div class="code-block">
-                <span class="comment">// ✅ Goed - aparte functies</span><br>
-                <span class="keyword">function</span> <span class="function">decreaseHunger</span>() {<br>
-                &nbsp;&nbsp;hunger = hunger - <span class="number">10</span>;<br>
-                &nbsp;&nbsp;<span class="function">checkBounds</span>();<br>
-                }<br><br>
-                <span class="keyword">function</span> <span class="function">checkBounds</span>() {<br>
-                &nbsp;&nbsp;<span class="keyword">if</span> (hunger < <span class="number">0</span>) hunger = <span
-                    class="number">0</span>;<br>
-                &nbsp;&nbsp;<span class="keyword">if</span> (hunger > <span class="number">100</span>) hunger = <span
-                    class="number">100</span>;<br>
-                }<br><br>
-                <span class="keyword">function</span> <span class="function">updateDisplay</span>() {<br>
-                &nbsp;&nbsp;document.<span class="function">getElementById</span>(<span
-                    class="string">"hunger"</span>).<span class="property">innerHTML</span> = hunger;<br>
-                }
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Veelgemaakte fouten week 8</h2>
-
-            <div class="error">
-                <ul>
-                    <li>Te veel code in één keer schrijven zonder te testen → werkt niks en je weet niet waar de fout
-                        zit
-                    </li>
-                    <li>Geen console.log() gebruiken → blind debuggen is onmogelijk</li>
-                    <li>Vergeten updateDisplay() aan te roepen → display blijft hangen op oude waardes</li>
-                    <li>Meerdere timers starten zonder de oude te stoppen → chaos!</li>
-                    <li>id's in HTML en JavaScript komen niet overeen → elementen worden niet gevonden</li>
-                    <li>Geen grenzen checken bij waardes → negatieve getallen of getallen boven 100</li>
-                    <li>JavaScript laden voordat HTML klaar is → gebruik DOMContentLoaded of zet script onderaan</li>
-                    <li>Onduidelijke variabele namen → na een week weet je zelf niet meer wat <code>x</code> of
-                        <code>temp</code> betekent
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Je bent klaar!</h2>
-
-            <div class="highlight">
-                <strong>Gefeliciteerd!</strong> Je hebt alle basis JavaScript concepten geleerd. Je kunt nu:
-                <ul>
-                    <li>Interactieve websites maken</li>
-                    <li>Data opslaan en manipuleren</li>
-                    <li>Gebruikersinput verwerken</li>
-                    <li>Timers en animaties maken</li>
-                    <li>Complexe logica schrijven met loops en if/else</li>
-                    <li>Je eigen code debuggen</li>
-                </ul>
-
-                <br><strong>Volgende stappen:</strong>
-                <ul>
-                    <li>Blijf oefenen met eigen projecten</li>
-                    <li>Leer over APIs om data op te halen van internet</li>
-                    <li>Experimenteer en maak fouten - zo leer je het beste!</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-</div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">🌙</button>
-
-<script src="../assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 
 </html>
