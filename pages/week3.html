@@ -71,14 +71,13 @@
 
             <h3>Voorbeelden:</h3>
             <div class="code-block">
-                <span class="comment">// Even of oneven check</span><br>
-                <span class="keyword">let</span> getal = <span class="number">8</span>;<br><br>
-                <span class="keyword">if</span> (getal % <span class="number">2</span> === <span
-                    class="number">0</span>) {<br>
-                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Even getal"</span>);<br>
+<!--                Voorbeeld van modulo aangepast naar boolean check. Waarschijnlijk snappen de meeste modulo niet op het moment dat ze leren over if / else statements-->
+                <span class="comment">// Boolean controleren</span><br>
+                <span class="keyword">let</span> aanwezigheid = <span class="number">true</span>;<br><br>
+                <span class="keyword">if</span> (aanwezigheid === <span class="number">true</span>) {<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Fijn dat je er bent!"</span>);<br>
                 } <span class="keyword">else</span> {<br>
-                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"Oneven
-                        getal"</span>);<br>
+                &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">"We missen je op school"</span>);<br>
                 }<br><br>
                 <span class="comment">// Stemgerechtigd ja/nee</span><br>
                 <span class="keyword">let</span> leeftijd = <span class="number">20</span>;<br><br>
@@ -91,8 +90,13 @@
             </div>
 
             <div class="tip">
+<!--                iets langere uitleg. want alleen 'is veiliger' blijft een beetje vaag.-->
                 💡 <strong>Let op:</strong> Gebruik <code>===</code> (3 is-tekens) in plaats van <code>==</code> (2
-                is-tekens). Dit is veiliger!
+                is-tekens). Dit voorkomt fouten.<br><br>
+
+                Als je "3" == 3 controleert zegt JavaScript dat deze gelijk zijn, terwijl de één een integer is en de ander een string.
+                <br><br>
+                Gebruik je "3" === 3 dan is het resultaat false omdat hij nu ook controleert of het datatype hetzelfde is, en dat is betrouwbaarder in je code.
             </div>
         </section>
 
